@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { registerUser } from '../api/axiosInstance';
+import { registerUser } from '../api/authApi';
 import './AuthPage.css';
 
 const RegisterPage: React.FC = () => {

@@ -1,17 +1,11 @@
 import { createContext, useState, useEffect, useCallback, type ReactNode } from 'react';
-import { loginUser, refreshToken as apiRefreshToken } from '../api/axiosInstance';
-import type { User } from '../api/axiosInstance';
+import { loginUser, refreshToken as apiRefreshToken } from '../api/authApi';
+import type { AuthContextType } from '../interfaces';
+import type { User } from '../interfaces';
 import { setAuthTokens, getAccessToken, getRefreshToken, clearAuthTokens } from '../utils/authUtils';
-import { fetchUserProfile as apiFetchUserProfile } from '../api/axiosInstance';
+import { fetchUserProfile as apiFetchUserProfile } from '../api/userApi';
 
-interface AuthContextType {
-  user: User | null;
-  isAuthenticated: boolean;
-  login: (username: string, password: string) => Promise<boolean>;
-  logout: () => void;
-  refreshToken: () => Promise<boolean>;
-  loading: boolean;
-}
+
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
